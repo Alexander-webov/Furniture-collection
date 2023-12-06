@@ -21,6 +21,10 @@ open_right_side_menu.addEventListener('click', () => {
 
 
 const swiper = new Swiper('.top__slider', {
-    slideClass: 'top__slider-item',
+    slideClass: 'top__slider-box',
     wrapperClass: 'top__slider-wrapper',
+     pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
 });

@@ -55,11 +55,12 @@
   top: 0;
   right: 0;
   background-color: #fff;
-  height: 100%;
+  min-height: 100%;
   margin: 0 auto;
   box-shadow: -9px 1px 20px 5px rgba(34, 60, 80, 0.6);
   transition: all 0.5s;
   transform: translateX(0);
+  z-index: 1000;
   &__hide {
     transform: translateX(410%);
   }
@@ -236,15 +237,176 @@
   }
 }
 
+/* css styles for slider */
 .top__slider {
   overflow: hidden;
   width: 100%;
 }
 .top__slider-wrapper {
   display: flex;
+
   width: 100%;
   height: 100%;
 }
-.top__slider-item {
+.top__slider-box {
   flex-shrink: 0;
+}
+/* end css styles for slider */
+
+.top {
+  position: relative;
+  margin: 0 auto;
+  background: url("../images/bacground-chair.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 722px;
+
+  &__inner {
+    width: 1640px;
+    margin: 0 auto;
+  }
+
+  &__slider {
+    display: flex;
+  }
+  &__slider-item {
+    display: flex;
+    align-items: center;
+  }
+  &__slider-img {
+  }
+
+  &__slider-title {
+    @extend %title-font;
+    color: $black;
+    font-size: 90px;
+    line-height: 1.1;
+    position: relative;
+    padding-bottom: 51px;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 1px;
+      bottom: 25px;
+      left: 0;
+      background: $default;
+    }
+  }
+  &__slider-info {
+    max-width: 640px;
+    margin-left: 35px;
+  }
+  &__slider-text {
+    max-width: 586px;
+    line-height: 27px;
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: -100px;
+}
+.swiper-pagination-bullet {
+  background: #363838;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 10px;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #ffef35;
+}
+
+.new-collection {
+  text-align: center;
+  margin: 200px 0 105px;
+  &__title {
+    position: relative;
+    color: $black;
+    @extend %title-font;
+    font-size: 36px;
+    line-height: 51px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    &::before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      bottom: 0px;
+      height: 1px;
+      background: #979797;
+    }
+  }
+  &__text {
+    max-width: 730px;
+    margin: 0 auto 35px;
+  }
+}
+
+.collection {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+  &__item {
+    position: relative;
+
+    &:hover {
+      .collection__info {
+        opacity: 1;
+      }
+    }
+  }
+  &__images {
+    min-height: 350px;
+    object-fit: cover;
+  }
+  &__info {
+    transition: all 0.5s;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(#fff, 0.7);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__info-title {
+    @extend %title-font;
+    color: $black;
+    font-size: 20px;
+    position: relative;
+    padding-bottom: 19px;
+    margin-bottom: 19px;
+    &::before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      bottom: 0px;
+      height: 1px;
+      background: #979797;
+    }
+  }
+  &__info-text {
+    color: #707070;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 28px;
+  }
 }
